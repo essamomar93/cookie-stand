@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
 </head>
+
 <body>
+
+    <form id="form">
+        <fieldset>
+            <label for="placeName">Name:</label>
+            <input type="text" name="placeName" id="pname" placeholder="Place Name">
+            <br>
+            <br>
+            <label for="minimumCustomer">Min:</label>
+            <input type="number" name="minimumCustomer" id="minimumCustomer" placeholder="Minimum customer / hour">
+            <br>
+            <br>
+            <label for="maximumCustomer">Max:</label>
+            <input type="number" name="maximumCustomer" id="maximumCustomer" placeholder="Maximum customer / hour">
+            <br>
+            <br>
+            <label for="avaregCustomer">Avg:</label>
+            <input type="step" name="avaregCustomer" id="avaregCustomer" placeholder="Avareg customer / hour">
+            <br>
+            <br>
+            <input type="submit">
+            <br>
+            <br>
+
+
+        </fieldset>
+
+    </form>
     <div id="parent"> </div>
 
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/app.js"></script>
+
 </body>
 
 </html>

@@ -205,6 +205,7 @@ function renderLima() {
 };
 renderLima();
 
+
 function renderTotal() {
 
     let tr = document.createElement('tr');
@@ -217,10 +218,10 @@ function renderTotal() {
 
 
     let totalavg = 0;
-    let sum=0;
+    let sum = 0;
 
     for (let i = 0; i < workHour.length; i++) {
-        
+
         totalavg = 0;
 
         for (let y = 0; y < resturantPlace.length; y++) {
@@ -236,7 +237,70 @@ function renderTotal() {
     };
     let th = document.createElement('th')
     tr.appendChild(th);
-    th.textContent=`${sum}`
+    th.textContent = `${sum}`
 };
 
 renderTotal();
+
+
+let form = document.getElementById('form');
+
+form.addEventListener('submit', submitter);
+
+form.appendChild(table);
+
+function submitter(event) {
+    event.preventDefault();
+    let name = event.target.pname.value;
+
+    let max = event.target.maximumCustomer.valueAsNumber;
+
+    let min = event.target.minimumCustomer.valueAsNumber;
+
+    let avg = event.target.avaregCustomer.value;
+
+    let newPlace = new Resturant(name, min, max, avg);
+
+    newPlace.random();
+
+    newPlace.AvgNum();
+
+    table.deleteRow(table.rows.length-1);
+
+    let tr = document.createElement('tr');
+
+    table.appendChild(tr);
+
+    let td1 = document.createElement('td');
+    tr.appendChild(td1);
+    td1.textContent = `${newPlace.ResLoc}`;
+
+    for (let i = 0; i < workHour.length; i++) {
+        let td = document.createElement('td');
+
+        tr.appendChild(td);
+
+        td.textContent = `${newPlace.avgCookiPerHour[i]}`
+    };
+    let td = document.createElement('td');
+    tr.appendChild(td);
+    td.textContent = `${newPlace.total}`;
+
+    renderTotal();
+
+    // console.log(event);
+    // console.log(newPlace);
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
